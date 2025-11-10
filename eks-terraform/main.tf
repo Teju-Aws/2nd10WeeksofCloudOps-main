@@ -112,10 +112,9 @@ provider "aws" {
  
  # data source 
  data "aws_vpc" "main" {
-  tags = {
-    Name = "Jumphost-vpc"  # Specify the name of your existing VPC
-  }
+  id = "vpc-0846ec3efeea25f2c"
 }
+
 
 data "aws_subnet" "subnet-1" {
  vpc_id = data.aws_vpc.main.id
