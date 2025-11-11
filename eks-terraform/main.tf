@@ -110,18 +110,17 @@ provider "aws" {
     role       = aws_iam_role.worker.name
   }
  
- # data source 
- data "aws_vpc" "main" {
+ # data source
+data "aws_vpc" "main" {
   id = "vpc-0846ec3efeea25f2c"
 }
 
-
 data "aws_subnet" "subnet-1" {
- vpc_id = data.aws_vpc.main.id
- filter {
-    name = "tag:Name"
+  vpc_id = data.aws_vpc.main.id
+  filter {
+    name   = "tag:Name"
     values = ["Jumphost-subnet1"]
- }
+  }
 }
 
 data "aws_subnet" "subnet-2" {
